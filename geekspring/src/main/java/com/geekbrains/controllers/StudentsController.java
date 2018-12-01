@@ -29,13 +29,23 @@ public class StudentsController {
         this.studentsService = studentsService;
     }
 
+
+    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
+    public String stude(Model model, @PathVariable(value = "id") Long id) {
+        Student student = studentsService.get(id);
+
+        model.addAttribute("student", student);
+//        List<StudentCourse> studentCourses = (List) studentCoursesRepository.findAll();
+//        System.out.println(studentCourses);
+//        System.out.println(studentList.get(0).getCourses());
+        return "student-info";
+    }
+
     @RequestMapping("/list")
     public String showStudentList(Model model) {
         List<Student> studentList = studentsService.getAllStudentsList();
         model.addAttribute("studentsList", studentList);
-//        List<StudentCourse> studentCourses = (List) studentCoursesRepository.findAll();
-//        System.out.println(studentCourses);
-//        System.out.println(studentList.get(0).getCourses());
+
         return "students-list";
     }
 
@@ -45,7 +55,7 @@ public class StudentsController {
 //    public void setStudentsService(StudentsService studentsService) {
 //        this.studentsService = studentsService;
 //    }
-//
+
 //    public StudentsController() {
 //    }
 //
