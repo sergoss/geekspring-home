@@ -13,6 +13,8 @@
         <%--<br>--%>
         <%--<a href="/students/showForm">Show Students Form Page</a>--%>
         <%--<br>--%>
+        <a href="/students/info/{id}">Show students info</a>
+        <br>
         <a href="/students/list">Show students list</a>
     </body>
 </html>

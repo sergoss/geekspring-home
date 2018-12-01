@@ -30,8 +30,8 @@ public class StudentsController {
     }
 
 
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public String stude(Model model, @PathVariable(value = "id") Long id) {
+    @RequestMapping(value = "/info/{id}", method = RequestMethod.GET)
+    public String showStudentInfo(Model model, @PathVariable(value = "id") Long id) {
         Student student = studentsService.get(id);
 
         model.addAttribute("student", student);
